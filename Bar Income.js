@@ -1,19 +1,19 @@
 function barIncome(input){
 
-    let pattern = /%(?<name>[A-Z][a-z]*)%.*?<(?<product>\w+)>.*?\|(?<qty>\d+)\|.*?(?<price>-?\d+(?:\.\d+)?)\$/
+    let pattern = /%(?<name>[A-Z][a-z]*)%.*?<(?<product>\w+)>.*?\|(?<qty>\d+)\|.*?(?<price>-?\d+(?:\.\d+)?)\$/;
  
-    let token = input.shift()
-    let totalSum = 0
+    let token = input.shift();
+    let totalSum = 0;
     while(token !== "end of shift"){
        
-       let matches = pattern.exec(token)
+       let matches = pattern.exec(token);
        if(matches !== null){
-       totalSum += (Number(matches.groups.qty) * Number(matches.groups.price))
-       console.log(`${matches.groups.name}: ${matches.groups.product} - ${(Number(matches.groups.qty) * Number(matches.groups.price)).toFixed(2)}`)
+       totalSum += (Number(matches.groups.qty) * Number(matches.groups.price));
+       console.log(`${matches.groups.name}: ${matches.groups.product} - ${(Number(matches.groups.qty) * Number(matches.groups.price)).toFixed(2)}`);
        }
-    token = input.shift()
+    token = input.shift();
     }
-    console.log(`Total income: ${totalSum.toFixed(2)}`)
+    console.log(`Total income: ${totalSum.toFixed(2)}`);
     
  
  }
